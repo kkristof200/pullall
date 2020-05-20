@@ -1,0 +1,14 @@
+#!/bin/bash
+
+MAIN_GITHUB_FOLDER_PATH=$1
+if [ "$MAIN_GITHUB_FOLDER_PATH" == "" ]; then
+    MAIN_GITHUB_FOLDER_PATH=~/github
+fi
+
+cd $MAIN_GITHUB_FOLDER_PATH
+
+for d in */ ; do
+    cd $MAIN_GITHUB_FOLDER_PATH/$d
+    pwd
+    git pull
+done
