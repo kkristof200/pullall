@@ -9,6 +9,13 @@ cd $MAIN_GITHUB_FOLDER_PATH
 
 for d in */ ; do
     cd $MAIN_GITHUB_FOLDER_PATH/$d
-    pwd
-    git pull
+    res=$(git status)
+
+    if [[ $res != *"branch is up to date"* ]]; then
+        echo -e "\n\n----------------------------------------------------------------\n"
+        echo -e "Proj: "$d
+        echo -e "Path: "$(pwd)"\n"
+        git pull
+        echo -e "\n----------------------------------------------------------------\n\n"
+    fi
 done
